@@ -8,11 +8,11 @@ const EditProfileModal = ({
   isEditClicked,
   setIsEditClicked,
 }) => {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState(profile.username);
   const [password, setPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [about, setAbout] = useState("");
+  const [firstName, setFirstName] = useState(profile.firstName);
+  const [lastName, setLastName] = useState(profile.lastName);
+  const [about, setAbout] = useState(profile.about);
   const [validPassword, setValidPassword] = useState(true);
 
   const handleProfileUpdate = (e) => {
@@ -91,7 +91,7 @@ const EditProfileModal = ({
                   type="text"
                   name="username"
                   id="username"
-                  defaultValue={profile.username}
+                  defaultValue={username}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                   placeholder="demo@demo.com"
                   onChange={(e) => {
@@ -114,7 +114,7 @@ const EditProfileModal = ({
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                   placeholder="123456"
                   onChange={handlePasswordChange}
-                  required={!validPassword}
+                  required
                 />
                 <span className="text-red-500 text-sm">
                   {validPassword
@@ -133,7 +133,7 @@ const EditProfileModal = ({
                   type="text"
                   name="firstName"
                   id="firstName"
-                  defaultValue={profile.firstName}
+                  defaultValue={firstName}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                   placeholder="Joe"
                   onChange={(e) => {
@@ -153,7 +153,7 @@ const EditProfileModal = ({
                   type="text"
                   name="lastName"
                   id="lastName"
-                  defaultValue={profile.lastName}
+                  defaultValue={lastName}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                   placeholder="Doe"
                   onChange={(e) => {
@@ -172,7 +172,7 @@ const EditProfileModal = ({
                 <textarea
                   id="about"
                   rows="4"
-                  defaultValue={profile.about}
+                  defaultValue={about}
                   className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="It was developed by Google Lab in 2014, and it is also known as k8s."
                   onChange={(e) => {

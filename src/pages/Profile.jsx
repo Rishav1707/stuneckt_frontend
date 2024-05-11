@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { fetchUserProfile } from "../utils/backendRequest";
 import EditProfileModal from "../components/EditProfileModal";
+import { Link } from "react-router-dom";
 
 const Profile = ({ profile, setProfile }) => {
   const [isEditClicked, setIsEditClicked] = useState(false);
@@ -55,10 +56,13 @@ const Profile = ({ profile, setProfile }) => {
         <br />
         <hr />
         <br />
-        <div className="flex justify-between px-4 py-1 font-semibold text-sm hover:bg-gray-100 cursor-pointer">
+        <Link
+          to="/user/followers"
+          className="flex justify-between px-4 py-1 font-semibold text-sm hover:bg-gray-100 cursor-pointer hover:underline"
+        >
           <span className="text-[#848484]">Followers</span>
           <span className="text-blue-600">{profile.followers?.length}</span>
-        </div>
+        </Link>
         <div className="flex justify-between px-4 py-1 font-semibold text-sm hover:bg-gray-100 cursor-pointer">
           <span className="text-[#848484]">Following</span>
           <span className="text-blue-600">{profile.following?.length}</span>

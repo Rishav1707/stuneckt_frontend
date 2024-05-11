@@ -57,7 +57,6 @@ const SigninComponent = ({ setIsLoggedIn }) => {
             placeholder="rishavraj@gmail.com"
             label={"Email"}
             type={"email"}
-            required={true}
             validPassword={true}
           />
           <InputBox
@@ -65,7 +64,6 @@ const SigninComponent = ({ setIsLoggedIn }) => {
             placeholder="123456"
             label={"Password"}
             type={"password"}
-            required={!validPassword}
             validPassword={validPassword}
           />
           <div className="pt-4">

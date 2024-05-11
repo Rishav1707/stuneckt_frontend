@@ -63,7 +63,6 @@ const SignupComponent = ({ setIsLoggedIn }) => {
             placeholder="Rishav"
             label={"First Name"}
             type={"text"}
-            required={true}
             validPassword={true}
           />
           <InputBox
@@ -73,7 +72,6 @@ const SignupComponent = ({ setIsLoggedIn }) => {
             placeholder="Raj"
             label={"Last Name"}
             type={"text"}
-            required={true}
             validPassword={true}
           />
           <InputBox
@@ -83,7 +81,6 @@ const SignupComponent = ({ setIsLoggedIn }) => {
             placeholder="rishavraj@gmail.com"
             label={"Email"}
             type={"email"}
-            required={true}
             validPassword={true}
           />
           <InputBox
@@ -91,7 +88,6 @@ const SignupComponent = ({ setIsLoggedIn }) => {
             placeholder="123456"
             label={"Password"}
             type={"password"}
-            required={!validPassword}
             validPassword={validPassword}
           />
           <InputBox
@@ -101,7 +97,6 @@ const SignupComponent = ({ setIsLoggedIn }) => {
             placeholder="I am a Java Developer"
             label={"About"}
             type={"text"}
-            required={true}
             validPassword={true}
           />
           <div className="pt-4">
