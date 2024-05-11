@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 /* eslint-disable react/prop-types */
 const SideProfileBar = ({ profile }) => {
   return (
-    <div className="bg-white w-[21%] h-[28.5rem] rounded-lg border border-gray-300">
+    <div className="bg-white w-[21%] h-[29.5rem] rounded-lg border border-gray-300">
       <div className="flex items-center justify-center mt-9">
         <img
           src={profile.profileImg}
@@ -18,7 +18,12 @@ const SideProfileBar = ({ profile }) => {
         </span>
       </div>
       <div className="text-center text-[#a4a4a4] px-2 mt-2">
-        <p>{profile.about}</p>
+        <p>
+          {profile.about?.length > 210
+            ? profile.about.slice(0, 210)
+            : profile.about}
+          ...
+        </p>
       </div>
       <br />
       <hr />

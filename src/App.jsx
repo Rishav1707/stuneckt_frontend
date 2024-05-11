@@ -48,6 +48,7 @@ function App() {
           setIsDropdownOpen(false);
         }
       }}
+      className="scroll-smooth"
     >
       {isloggedIn && (
         <Navbar
@@ -76,6 +77,7 @@ function App() {
                 isDropdownOpen={isDropdownOpen}
                 setIsDropdownOpen={setIsDropdownOpen}
                 profile={profile}
+                setProfile={setProfile}
               />
             ) : (
               <Navigate to="/signin" replace={true} />
@@ -85,7 +87,11 @@ function App() {
         <Route
           path="/user/profile"
           element={
-            isloggedIn ? <Profile /> : <Navigate to="/signin" replace={true} />
+            isloggedIn ? (
+              <Profile profile={profile} setProfile={setProfile} />
+            ) : (
+              <Navigate to="/signin" replace={true} />
+            )
           }
         />
         <Route

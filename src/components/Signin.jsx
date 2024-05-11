@@ -12,13 +12,23 @@ import { BACKEND_BASE_URL } from "../utils/loadEnv";
 const SigninComponent = ({ setIsLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [validPassword, setValidPassword] = useState(true);
   const navigate = useNavigate();
+
+  const handlePasswordChange = (e) => {
+    const newPassword = e.target.value;
+    setPassword(newPassword);
+
+    if (newPassword.length < 6) {
+      setValidPassword(false);
+    } else {
+      setValidPassword(true);
+    }
+  };
+
   const handleSignIn = async (e) => {
     e.preventDefault();
-    if (password.length < 6) {
-      alert("Password must be atleast 6 characters long");
-      return;
-    }
+    if (!validPassword) return;
     try {
       const user = { username, password };
       const response = await axios.post(
@@ -47,14 +57,16 @@ const SigninComponent = ({ setIsLoggedIn }) => {
             placeholder="rishavraj@gmail.com"
             label={"Email"}
             type={"email"}
+            required={true}
+            validPassword={true}
           />
           <InputBox
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
+            onChange={handlePasswordChange}
             placeholder="123456"
             label={"Password"}
             type={"password"}
+            required={!validPassword}
+            validPassword={validPassword}
           />
           <div className="pt-4">
             <Button label={"Sign in"} type={"submit"} />

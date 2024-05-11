@@ -5,8 +5,9 @@ import AllPosts from "../components/AllPosts";
 import SideProfileBar from "../components/SideProfileBar";
 import CreatePost from "../components/CreatePost";
 import CreatePostModal from "../components/CreatePostModal";
+import SideAllUsersBar from "../components/SideAllUsersBar";
 
-const Dashboard = ({ profile }) => {
+const Dashboard = ({ profile, setProfile }) => {
   const [allPosts, setAllPosts] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [image, setImage] = useState("");
@@ -21,7 +22,7 @@ const Dashboard = ({ profile }) => {
 
   return (
     <div className="flex justify-center pt-28">
-      <div className="flex w-3/4 gap-4">
+      <div className="flex w-4/5 gap-4 relative">
         <SideProfileBar profile={profile} />
         <div className="w-3/5">
           <CreatePost
@@ -44,6 +45,7 @@ const Dashboard = ({ profile }) => {
           )}
           <AllPosts allPosts={allPosts} />
         </div>
+        <SideAllUsersBar setProfile={setProfile} />
       </div>
     </div>
   );
